@@ -71,7 +71,7 @@ function handle_call_status()
           ]';
           break;
   }
-      return;
+      return $ncco;
   }
 }
 
@@ -90,6 +90,7 @@ switch ($method) {
     //Retrieve your dynamically generated NCCO.
     $ncco = handle_call_status();
     header("HTTP/1.1 200 OK");
+    header('Content-Type: application/json');
     echo $ncco;
     break;
   default:
